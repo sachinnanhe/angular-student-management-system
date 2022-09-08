@@ -1,0 +1,43 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col"><b style="color: darkred;">Id</b></th>
+      <th scope="col"><b style="color: darkred;">First Name</b></th>
+      <th scope="col"><b style="color: darkred;">Last name</b></th>
+      <th scope="col"><b style="color: darkred;">Class</b></th>
+      <th scope="col"><b style="color: darkred;">Subject</b></th>
+      <th scope="col"><b style="color: darkred;">Date of Birth</b></th>
+      <th scope="col"><b style="color: darkred;"></b>Action</th>
+    
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let s of students, index as i">
+      <th>{{s.id}}</th>
+      <th>{{s.firstName}}</th>
+      <th>{{s.lastName}}</th>
+      <th>{{s.stuClass}}</th>
+      <th>{{s.subject}}</th>
+      <th>{{s.dob}}</th>
+      <th>
+        <button type="button" routerLink="/updatestudent/{{s.id}}" class="btn btn-success">Update</button>
+        <button type="button"(click)="deleteStudent(s)" class="btn btn-danger">Delete</button>
+      </th>
+     </tr>
+  </tbody>
+</table>
+
+
+<!-- <ol class="list-group list-group-numbered">
+    <li *ngFor="let s of students" class="list-group-item">
+      <span>{{s.firstName}}</span>
+      <br>
+      <span>{{s.lastName}}</span>
+      <br>
+      <span>{{s.stuClass}}</span>
+      <br>
+      <span>{{s.subject}}</span>
+      <br>
+      <span>{{s.dob}}</span>
+    </li>
+  </ol> -->
