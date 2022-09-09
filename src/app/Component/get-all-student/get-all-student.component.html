@@ -1,3 +1,4 @@
+<div class="container">
 <table class="table">
   <thead>
     <tr>
@@ -20,15 +21,16 @@
       <th>{{s.subject}}</th>
       <th>{{s.dob}}</th>
       <th>
-        <button type="button" routerLink="/updatestudent/{{s.id}}" class="btn btn-success">Update</button>
+        <button type="button" routerLink="/updatestudent/{{s.id}}" class="btn btn-primary" >Update</button>
         <button type="button"(click)="deleteStudent(s)" class="btn btn-danger">Delete</button>
       </th>
      </tr>
   </tbody>
 </table>
+</div>
 
 
-<!-- <ol class="list-group list-group-numbered">
+<!-- <ol <>="list-group list-group-numbered">
     <li *ngFor="let s of students" class="list-group-item">
       <span>{{s.firstName}}</span>
       <br>

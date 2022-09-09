@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { stringify } from 'querystring';
 import Student from 'src/app/Entity/Student';
 import { StudentService } from 'src/app/student.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 @Component({
@@ -10,23 +12,46 @@ import { StudentService } from 'src/app/student.service';
 })
 export class UpdateStudentComponent implements OnInit {
 
-  student: Student = new Student();
+  studentToUpdate: Student = new Student();
 
   students: Student[] = [];
+  id: number = 0;
 
-  update(student){
-    const observable= this.studentService.updateStudent(this.student)
-    observable.subscribe(
-      (response:any)=> {
-         console.log(response);
-      },)
-    
-   }
+  // studentToUpdate = {
+  //   firstName:"",
+  //   lastName:"",
+  //   stuClass:"",
+  //   subject:"",
+  //   dob:""
+  // }
 
 
-  constructor(public studentService : StudentService) { }
 
+
+  constructor(public studentService: StudentService, public rout: ActivatedRoute,
+    public router: Router
+    ) { }
+
+  update(student: Student) {
+    this.studentService.updateStudent(student, student.id).subscribe((result) => {
+      console.log(result);
+      // this.router.navigate['getallstudent']
+    },
+      (error) => {
+        console.log(error)
+      }
+    )
+
+  }
   ngOnInit(): void {
+    this.getData();
+  }
+  getData() {
+    this.id = this.rout.snapshot.params['id'];
+    this.studentService.getById(this.id).subscribe((response) => {
+      this.studentToUpdate = response;
+    }
+    )
   }
 
 }

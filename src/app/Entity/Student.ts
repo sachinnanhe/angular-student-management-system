@@ -2,7 +2,7 @@ export default class Student{
     "id":Number;
     "firstName":string="";
     "lastName":string="";
-    "stuClass":string="";
+    "stuClass":Number;
     "subject":string="";
     "dob":Date;
    

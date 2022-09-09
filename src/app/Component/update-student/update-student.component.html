@@ -1,28 +1,28 @@
 <div class="container" style="text-align: center;">
     <h3 style="color: darkred;">Update</h3>
-    <p>Please fill in this form to update student.</p>
+    <p>Please fill in this form to update student</p>
     <hr>
 
     <label for="text" class="col-sm-2 col-form-label"><b>First Name</b></label>
-    <input type="text" placeholder="enter first name"[(ngModel)]=student.firstName>
+    <input type="text"  placeholder="enter first name"[(ngModel)]="studentToUpdate.firstName">
     <br>
     <br>
     <label for="text"class="col-sm-2 col-form-label"><b>Last Name</b></label>
-    <input type="text" placeholder="enter last name"[(ngModel)]=student.lastName>
+    <input type="text" placeholder="enter last name"[(ngModel)]="studentToUpdate.lastName">
     <br>
     <br>
     <label for="text"class="col-sm-2 col-form-label"><b>Student Class</b></label>
-    <input type="text" placeholder="enter student class"[(ngModel)]=student.stuClass>
+    <input type="number" placeholder="enter student class"[(ngModel)]="studentToUpdate.stuClass">
     <br>
     <br>
     <label for="text"class="col-sm-2 col-form-label"><b>Subject</b></label>
-    <input type="text" placeholder="enter subject name"[(ngModel)]=student.subject>
+    <input type="text" placeholder="enter subject name"[(ngModel)]="studentToUpdate.subject">
     <br>
     <br>
     <label for="date"class="col-sm-2 col-form-label"><b>Date of Birth</b></label>
-    <input type="date" placeholder="enter date of birth"[(ngModel)]=student.dob>
+    <input type="date" placeholder="enter date of birth"[(ngModel)]="studentToUpdate.dob">
     <hr>
-    <button type="submit"(click)="update(student)" class="registerbtn">
+    <button type="submit"routerLink="/getallstudent" (click)="update(studentToUpdate)" class="registerbtn">
         <b style="color: white; background-color: green;" >Update</b></button>
   </div>
 
